@@ -1,0 +1,123 @@
+rules:
+  # 1) Move trading screenshots first (files that start with these prefixes)
+  - name: trading_screenshots
+    locations:
+      - ~/Downloads
+    subfolders: true
+    filters:
+      - name: "BTCUSD_*"
+      - name: "EURUSD_*"
+      - name: "NAS100_*"
+      - name: "XAUUSD_*"
+      - name: "AUDUSD_*"
+      - name: "NZDUSD_*"
+    actions:
+      - move: ~/Downloads/Trading/Screenshots/
+
+  # 2) Visuals — move all image files (everything else left in Downloads that is an image)
+  - name: visuals
+    locations:
+      - ~/Downloads
+    subfolders: true
+    filters:
+      - extension:
+          - jpg
+          - jpeg
+          - png
+          - gif
+          - bmp
+          - webp
+    actions:
+      - move: ~/Downloads/Visuals/
+
+  # 3) Trading logs (CSV)
+  - name: trading_logs
+    locations:
+      - ~/Downloads
+    subfolders: true
+    filters:
+      - extension: csv
+    actions:
+      - move: ~/Downloads/Trading/Logs/
+
+  # 4) Chess files (.pgn)
+  - name: chess_files
+    locations:
+      - ~/Downloads
+    subfolders: true
+    filters:
+      - extension: pgn
+    actions:
+      - move: ~/Downloads/Chess/
+
+  # 5) Archives (includes tar.xz)
+  - name: archives
+    locations:
+      - ~/Downloads
+    subfolders: true
+    filters:
+      - extension:
+          - zip
+          - tar
+          - gz
+          - rar
+          - 7z
+          - tar.xz
+    actions:
+      - move: ~/Downloads/Archives/
+
+  # 6) Knowledge / reading material
+  - name: knowledge
+    locations:
+      - ~/Downloads
+    subfolders: true
+    filters:
+      - extension:
+          - pdf
+          - epub
+          - doc
+          - docx
+          - txt
+          - md
+    actions:
+      - move: ~/Downloads/Knowledge/
+
+  # 7) Installers and packages
+  - name: installers
+    locations:
+      - ~/Downloads
+    subfolders: true
+    filters:
+      - extension:
+          - exe
+          - deb
+          - jar
+          - flatpakref
+          - AppImage
+    actions:
+      - move: ~/Downloads/Installers/
+
+  # 8) Scripts
+  - name: scripts
+    locations:
+      - ~/Downloads
+    subfolders: true
+    filters:
+      - extension:
+          - py
+          - sh
+    actions:
+      - move: ~/Downloads/Documents/Scripts/
+
+  # 9) Web dumps / saved html (note the space → path quoted when needed)
+  - name: web_dumps
+    locations:
+      - ~/Downloads
+    subfolders: true
+    filters:
+      - extension:
+          - html
+          - htm
+    actions:
+      - move: "~/Downloads/Web Dumps/"
+

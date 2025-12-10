@@ -1,0 +1,38 @@
+{
+  "type": "con",
+  "name": "content",
+  "orientation": "horizontal",
+  "percent": 1,
+  "nodes": [
+    {
+      "type": "con",
+      "percent": 0.5,
+      "swallows": [
+        { "instance": "kitty" }
+      ]
+    },
+    {
+      "type": "con",
+      "orientation": "vertical",
+      "percent": 0.5,
+      "nodes": [
+        {
+          "type": "con",
+          "percent": 0.5,
+          "swallows": [
+            { "instance": "kitty" }
+          ]
+        },
+        {
+          "type": "con",
+	  "percent": 0.5,
+          "swallows": [
+            { "instance": "kitty" }
+          ]
+        }
+      ]
+    }
+  ],
+  "floating_nodes": []
+}
+

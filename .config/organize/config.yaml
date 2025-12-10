@@ -1,0 +1,132 @@
+# Safe config for organize v3.3.0 — first pass: top-level ~/Downloads only (no recursion)
+rules:
+
+  - name: top_level_preview
+    locations:
+      - ~/Downloads
+    subfolders: false
+    filters:
+      - not empty
+    actions:
+      - echo: "preview: {relative_path} -> (no-op)"
+
+  - name: trading_screenshots
+    locations:
+      - ~/Downloads
+    subfolders: false
+    filter_mode: "any"
+    filters:
+      - name:
+          startswith: "BTCUSD_"
+      - name:
+          startswith: "EURUSD_"
+      - name:
+          startswith: "NAS100_"
+      - name:
+          startswith: "XAUUSD_"
+      - name:
+          startswith: "AUDUSD_"
+      - name:
+          startswith: "NZDUSD_"
+    actions:
+      - move: ~/Downloads/Trading/Screenshots/
+
+  - name: visuals_images
+    locations:
+      - ~/Downloads
+    subfolders: false
+    filters:
+      - extension:
+          - jpg
+          - jpeg
+          - png
+          - webp
+          - gif
+          - bmp
+    actions:
+      - move: ~/Downloads/Visuals/
+
+  - name: trading_logs_csv
+    locations:
+      - ~/Downloads
+    subfolders: false
+    filters:
+      - extension: csv
+    actions:
+      - move: ~/Downloads/Trading/Logs/
+
+  - name: chess_pgn
+    locations:
+      - ~/Downloads
+    subfolders: false
+    filters:
+      - extension: pgn
+    actions:
+      - move: ~/Downloads/Chess/
+
+  - name: archives
+    locations:
+      - ~/Downloads
+    subfolders: false
+    filters:
+      - extension:
+          - zip
+          - rar
+          - 7z
+          - tar
+          - gz
+          - xz
+    actions:
+      - move: ~/Downloads/Archives/
+
+  - name: knowledge_docs
+    locations:
+      - ~/Downloads
+    subfolders: false
+    filters:
+      - extension:
+          - pdf
+          - epub
+          - doc
+          - docx
+          - md
+          - txt
+    actions:
+      - move: ~/Downloads/Knowledge/
+
+  - name: installers
+    locations:
+      - ~/Downloads
+    subfolders: false
+    filters:
+      - extension:
+          - deb
+          - exe
+          - AppImage
+          - flatpakref
+    actions:
+      - move: ~/Downloads/Installers/
+
+  - name: scripts
+    locations:
+      - ~/Downloads
+    subfolders: false
+    filters:
+      - extension:
+          - sh
+          - bash
+          - py
+    actions:
+      - move: ~/Downloads/Documents/Scripts/
+
+  - name: web_pages
+    locations:
+      - ~/Downloads
+    subfolders: false
+    filters:
+      - extension:
+          - html
+          - htm
+    actions:
+      - move: "~/Downloads/Web Dumps/"
+
